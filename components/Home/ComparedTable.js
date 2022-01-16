@@ -10,6 +10,8 @@ const initTableList = (data, tld) => {
             }
         }
     });
+
+    tempTableList.sort((a, b) => {return data[a.regIndex].domains[a.domainIndex].priceReg - data[b.regIndex].domains[b.domainIndex].priceReg})
     return tempTableList;
 }
 
@@ -21,7 +23,7 @@ const ComparedTable = () => {
     return (
         <div>
             {tableList.map((el, key) => 
-                <div key={key}>{data[el.regIndex].name}: {data[el.regIndex].domains[el.domainIndex].domain}</div>
+                <div key={key}>{data[el.regIndex].name}: {data[el.regIndex].domains[el.domainIndex].domain} ({JSON.stringify(data[el.regIndex].domains[el.domainIndex])})</div>
             )}
         </div>
     )
