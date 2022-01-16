@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { store } from '../app/store'
 import { Provider } from 'react-redux'
 import '../styles/globals.css'
+import Layout from '../components/Layout'
 
 const Domainix = ({ Component, pageProps }) => {
 	return (
@@ -12,7 +13,7 @@ const Domainix = ({ Component, pageProps }) => {
 				<title>Domainix</title>
 				<meta name="author" content="Martin Weiss (martinweiss.cz)"/>
 			</Head>
-			<Component {...pageProps} />
+			<Layout content={<Component {...pageProps} />}/>
 		</Provider>
 	)
 }

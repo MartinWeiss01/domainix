@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .dashboardSidebarLink {
+        @apply flex items-center px-2 py-2 rounded-sm uppercase
+    }
+    .dashboardSidebarLink:not(.active) {
+        @apply text-gray-300 hover:bg-gray-700 hover:text-white
+    }
+    .dashboardSidebarLink.active {
+        @apply bg-gray-900 text-white
+    }
+    .dashboardSidebarLink:not(.active) > svg {
+        @apply text-gray-400 group-hover:text-gray-300
+    }
+    .dashboardSidebarLink.active > svg {
+        @apply text-gray-300
+    }
+}
