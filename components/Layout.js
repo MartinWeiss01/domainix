@@ -7,6 +7,7 @@ import { HomeIcon, AdjustmentsIcon, MenuAlt2Icon, XIcon } from "@heroicons/react
 
 const navigation = [
 	{name: "Home", href: "/", icon: HomeIcon},
+	{name: "Seznam registrátorů", href: "/registrars", icon: HomeIcon},
 ];
 
 const Layout = ({ content }) => {
