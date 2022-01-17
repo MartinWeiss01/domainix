@@ -3,14 +3,18 @@ import Link from "next/link";
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
-import { HomeIcon, AdjustmentsIcon, MenuAlt2Icon, XIcon } from "@heroicons/react/outline";
+import { AdjustmentsIcon, MenuAlt2Icon, XIcon } from "@heroicons/react/outline";
+import { CalculatorIcon, HomeIcon, QuestionMarkCircleIcon, UserGroupIcon } from "@heroicons/react/solid"
 import Breadcrumb from "./Breadcrumb";
 import Footer from "./Footer";
 
 const navigation = [
 	{group: "Hlavní", links: [
-		{name: "Kalkulačka", href: "/", icon: HomeIcon, exact: true},
-		{name: "Registrátoři", href: "/registrars", icon: HomeIcon, exact: false},
+		{name: "Kalkulačka", href: "/", icon: CalculatorIcon, exact: true},
+		{name: "Registrátoři", href: "/registrars", icon: UserGroupIcon, exact: false},
+	]},
+	{group: "Podpora", links: [
+		{name: "FAQ", href: "/faq", icon: QuestionMarkCircleIcon, exact: true},
 	]},
 ];
 
@@ -59,7 +63,7 @@ const Layout = ({ content }) => {
 								<nav className="px-2 space-y-1">
                                     {navigation.map((group, groupKey) => (
 										<div key={groupKey}>
-											<span>{group.group}</span>
+											<p className="dashboard-group-title">{group.group}</p>
 											{group.links.map((link, linkKey) => (
 												<Link href={link.href} key={linkKey}>
 													<a href={link.href} className={`group dashboardSidebarLink text-base ${link.exact ? (router.pathname === link.href ? "active" : "") : (router.pathname.includes(link.href) ? "active" : "")}`}>
@@ -102,13 +106,13 @@ const Layout = ({ content }) => {
                         </div>
 
 						<div className="flex-1 flex flex-col overflow-y-auto">
-							<nav className="flex-1 py-4 bg-gray-800 space-y-1">
+							<nav className="flex-1 py-4 bg-gray-800 space-y-1 flex flex-col gap-4">
 								{navigation.map((group, groupKey) => (
-									<div key={groupKey}>
-										<span>{group.group}</span>
+									<div key={groupKey} className="mt-4">
+										<p className="dashboard-group-title">{group.group}</p>
 										{group.links.map((link, linkKey) => (
 											<Link href={link.href} key={linkKey}>
-                                        		<a href={link.href} className={`px-4 group dashboardSidebarLink text-sm tracking-wider ${link.exact ? (router.pathname === link.href ? "active" : "") : (router.pathname.includes(link.href) ? "active" : "")}`}>
+                                        		<a href={link.href} className={`px-4 group dashboardSidebarLink text-sm ${link.exact ? (router.pathname === link.href ? "active" : "") : (router.pathname.includes(link.href) ? "active" : "")}`}>
 										    		<link.icon className="mr-3 h-6 w-6" aria-hidden="true"/>
 													{link.name}
 												</a>
