@@ -8,7 +8,7 @@ const RegistrarDetail = () => {
 
     if(data[id] !== undefined) {
         return (
-            <>
+            <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50 rounded-md">
                         <tr>
@@ -37,7 +37,7 @@ const RegistrarDetail = () => {
                         ))}
                     </tbody>
                 </table>
-            </>
+            </div>
         )
     } else {
         return (
