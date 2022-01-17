@@ -3,12 +3,10 @@ import { useDispatch } from "react-redux";
 import { setData } from "../app/mainSlice"
 import ComparedTable from "../components/Home/ComparedTable";
 import FilterForm from "../components/Home/FilterForm";
-import Registrars from "../components/Registrars";
 
 const Home = () => {
 	const [ready, setReady] = useState(false);
 	const dispatch = useDispatch();
-	const [data, getData] = useState([]);
 
 	useEffect(() => {
 		fetch('https://srv.martinweiss.cz/api/v1/domainix')
@@ -17,7 +15,6 @@ const Home = () => {
 		  return Promise.reject(response);
 		})
 		.then(data => {
-			getData(data)
 			dispatch(setData(data))
 			setReady(true)
 		})
@@ -29,7 +26,6 @@ const Home = () => {
 			<div>	
 				<FilterForm />
 				<ComparedTable />
-				<Registrars />
 			</div>
 		)
 	} else {
