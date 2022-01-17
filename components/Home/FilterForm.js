@@ -34,7 +34,15 @@ const FilterForm = () => {
 
     return (
         <>
-            <div className="flex gap-2">
+			<div className="mb-2 flex flex-col gap-1">
+                <p className="text-sm">
+                    Pro srovnání cen u jednotlivých registrátorů si zvol doménu, u které zvažuješ koupi. Poté stiskni tlačítko <b>Zjistit ceny</b> a vyčkej na výpis všech registrátorů, které tato aplikace k této TLD eviduje.
+                </p>
+                <p className="text-sm">
+                    V pravém horním rohu máš možnost si také nastavit například to, zda preferuješ ceny včetně či bez DPH.
+                </p>
+            </div>
+            <div className="flex gap-2 flex-wrap">
 				<div className="w-72">
 					<div className="relative rounded-md shadow-sm">
 						<input type="text" className="block w-full pl-3 pr-32 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 border-gray-300" placeholder="superdoména" onChange={e => setdomainName(e.target.value)}/>
