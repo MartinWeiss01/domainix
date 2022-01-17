@@ -16,19 +16,19 @@ const Breadcrumb = () => {
             <div>
                 <div>
                     <nav className="sm:hidden" aria-label="Back">
-                        <a href="#" className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700">
+                        <a className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700">
                             <ChevronLeftIcon className="flex-shrink-0 -ml-1 mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
-                            Back
+                            Zpět
                         </a>
                     </nav>
                     <nav className="hidden sm:flex" aria-label="Breadcrumb">
                         <ol className="flex items-center space-x-4">
                             {pathSplit.map((section, sectionKey) => 
                                 sectionKey !== 0 ? (
-                                    <li>
+                                    <li key={sectionKey}>
                                         <div className="flex items-center">
                                             <ChevronRightIcon className="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" />
-                                            <a href="#" className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">
+                                            <a className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">
                                                 {sections[section]}
                                             </a>
                                         </div>
@@ -36,7 +36,7 @@ const Breadcrumb = () => {
                                 ) : (
                                     <li>
                                         <div>
-                                            <a href="/" className="text-sm font-medium text-gray-500 hover:text-gray-700">
+                                            <a className="text-sm font-medium text-gray-500 hover:text-gray-700">
                                                 {sections[section]}
                                             </a>
                                         </div>
