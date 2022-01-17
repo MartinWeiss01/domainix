@@ -1,14 +1,6 @@
 import Link from "next/link";
 import { useSelector } from "react-redux";
-
-const registrarsList = {
-    Wedos: {img: "/registrars/wedos.png"},
-    Subreg: {img: "/registrars/subreg.png"},
-    Forpsi: {img: "/registrars/forpsi.svg"},
-    Pipni: {img: "/registrars/pipni.png"},
-    Endora: {img: "/registrars/endora.png"},
-    Websupport: {img: "/registrars/websupport.svg"},
-}
+import { registrarsList } from "../libs/registrarsList";
 
 const Registrars = () => {
     const data = useSelector((state) => state.mainer.data)
