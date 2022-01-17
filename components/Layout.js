@@ -6,8 +6,10 @@ import { Dialog, Transition } from "@headlessui/react";
 import { HomeIcon, AdjustmentsIcon, MenuAlt2Icon, XIcon } from "@heroicons/react/outline";
 
 const navigation = [
-	{name: "Home", href: "/", icon: HomeIcon},
-	{name: "Seznam registrátorů", href: "/registrars", icon: HomeIcon},
+	{group: "Hlavní", links: [
+		{name: "Home", href: "/", icon: HomeIcon},
+		{name: "Seznam registrátorů", href: "/registrars", icon: HomeIcon},
+	]},
 ];
 
 const Layout = ({ content }) => {
@@ -49,13 +51,18 @@ const Layout = ({ content }) => {
 
 							<div className="mt-5 flex-1 h-0 overflow-y-auto">
 								<nav className="px-2 space-y-1">
-                                    {navigation.map((link, linkKey) => (
-                                        <Link href={link.href} key={linkKey}>
-                                            <a href={link.href} className={`group dashboardSidebarLink text-base ${router.pathname === link.href ? "active" : ""}`}>
-                                                <link.icon className="mr-4 h-6 w-6" aria-hidden="true"/>
-                                                {link.name}
-                                            </a>
-                                        </Link>
+                                    {navigation.map((group, groupKey) => (
+										<div key={groupKey}>
+											<span>{group.group}</span>
+											{group.links.map((link, linkKey) => (
+												<Link href={link.href} key={linkKey}>
+													<a href={link.href} className={`group dashboardSidebarLink text-base ${router.pathname === link.href ? "active" : ""}`}>
+														<link.icon className="mr-4 h-6 w-6" aria-hidden="true"/>
+														{link.name}
+													</a>
+												</Link>
+											))}
+										</div>
                                     ))}
 								</nav>
 							</div>
@@ -86,13 +93,18 @@ const Layout = ({ content }) => {
 
 						<div className="flex-1 flex flex-col overflow-y-auto">
 							<nav className="flex-1 py-4 bg-gray-800 space-y-1">
-								{navigation.map((link, linkKey) => (
-									<Link href={link.href} key={linkKey}>
-                                        <a href={link.href} className={`px-4 group dashboardSidebarLink text-sm tracking-wider ${router.pathname === link.href ? "active" : ""}`}>
-										    <link.icon className="mr-3 h-6 w-6" aria-hidden="true"/>
-										    {link.name}
-                                        </a>
-									</Link>
+								{navigation.map((group, groupKey) => (
+									<div key={groupKey}>
+										<span>{group.group}</span>
+										{group.links.map((link, linkKey) => (
+											<Link href={link.href} key={linkKey}>
+                                        		<a href={link.href} className={`px-4 group dashboardSidebarLink text-sm tracking-wider ${router.pathname === link.href ? "active" : ""}`}>
+										    		<link.icon className="mr-3 h-6 w-6" aria-hidden="true"/>
+													{link.name}
+												</a>
+											</Link>
+										))}
+									</div>
 								))}
 							</nav>
 						</div>
