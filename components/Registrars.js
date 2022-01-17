@@ -8,14 +8,11 @@ const Registrars = () => {
     return (
         <>
             <h1 className="font-bold mt-8 mb-2">Dostupní registrátoři</h1>
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex gap-6 flex-wrap">
                 {data.map((registrator, registratorKey) => (
                     <Link key={registratorKey} href={`/registrars/${registratorKey}`}>
-                        <a>
-                            <div>
-                                <img className="w-32" src={registrarsList[registrator.name].img} />
-                                {registrator.name}
-                            </div>
+                        <a className="opacity-50 hover:opacity-100 transition-opacity">
+                            <img className="w-32" src={registrarsList[registrator.name].img} />
                         </a>
                     </Link>
                 ))}
