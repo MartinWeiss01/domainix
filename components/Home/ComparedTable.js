@@ -59,7 +59,7 @@ const ComparedTable = () => {
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <div title="Přejít k registrátorovi" className="flex justify-center items-center">
                                 <Link href={registrarsList[data[row.regIndex].name].link}>
-                                    <a target="_blank" className="text-indigo-600 hover:text-indigo-900">
+                                    <a target="_blank" className="text-primary-600 hover:text-primary-800">
                                         <ShoppingCartIcon className="h-5 w-5"/>
                                     </a>
                                 </Link>
