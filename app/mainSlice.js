@@ -5,6 +5,7 @@ export const mainSlice = createSlice({
     initialState: {
         data: [],
         selectedTLD: "",
+        taxes: true,
     },
     reducers: {
         setData: (state, action) => {
@@ -13,8 +14,11 @@ export const mainSlice = createSlice({
         setTLD: (state, action) => {
             state.selectedTLD = action.payload
         },
+        changeTaxes: (state) => {
+            state.taxes = !state.taxes
+        },
     }
 })
 
-export const { setData, setTLD } = mainSlice.actions
+export const { setData, setTLD, changeTaxes } = mainSlice.actions
 export default mainSlice.reducer

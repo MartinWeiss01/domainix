@@ -1,12 +1,14 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Fragment, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import { Dialog, Menu, Switch, Transition } from "@headlessui/react";
 
-import { AdjustmentsIcon, MenuAlt2Icon, XIcon } from "@heroicons/react/outline";
-import { CalculatorIcon, HomeIcon, QuestionMarkCircleIcon, UserGroupIcon } from "@heroicons/react/solid"
+import { CashIcon, MenuAlt2Icon, XIcon } from "@heroicons/react/outline";
+import { HomeIcon, QuestionMarkCircleIcon, UserGroupIcon } from "@heroicons/react/solid"
 import Breadcrumb from "./Breadcrumb";
 import Footer from "./Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { changeTaxes } from "../app/mainSlice";
 
 const navigation = [
 	{group: "Hlavní", links: [
@@ -18,9 +20,22 @@ const navigation = [
 	]},
 ];
 
+const options = [
+	{name: "Preferovat ceny vč. daně"},
+	{name: "Měna"},
+];
+
 const Layout = ({ content }) => {
     const router = useRouter()
+	const taxes = useSelector((state) => state.mainer.taxes)
+	const dispatch = useDispatch()
     const [sidebarOpen, setSidebarOpen] = useState(false)
+	const [localTaxes, setLocalTaxes] = useState(taxes)
+
+	const updateTaxes = () => {
+		setLocalTaxes(!localTaxes)
+		dispatch(changeTaxes())
+	}
 
     return (
 		<div className="h-screen flex overflow-hidden bg-gray-100">
@@ -136,10 +151,14 @@ const Layout = ({ content }) => {
 						<div className="flex-1 flex">
 						</div>
 
-						<div className="ml-4 flex items-center md:ml-6">
-							<button className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
-								<AdjustmentsIcon className="h-6 w-6" aria-hidden="true"/>
-							</button>
+						<div className="ml-4 flex gap-2 items-center md:ml-6">
+							<div className="flex gap-1 items-center">
+								<CashIcon className="w-5 h-5"/>
+								<span className="text-xs font-medium">DPH</span>
+							</div>
+							<Switch checked={localTaxes} onChange={updateTaxes} className={`${localTaxes ? 'bg-primary-700' : 'bg-red-900'} relative inline-flex flex-shrink-0 h-4 w-8 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}>
+								<span aria-hidden="true" className={`${localTaxes ? 'translate-x-4' : 'translate-x-0'} pointer-events-none inline-block h-3 w-3 rounded-full bg-white transform ring-0 transition ease-in-out duration-200`}/>
+							</Switch>
 						</div>
 					</div>
 				</div>
