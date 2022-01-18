@@ -21,6 +21,7 @@ const initTableList = (data, tld) => {
 const ComparedTable = () => {
     const data = useSelector((state) => state.mainer.data)
     const selectedTLD = useSelector((state) => state.mainer.selectedTLD)
+    const period = useSelector((state) => state.mainer.selectedPeriod)
     const taxes = useSelector((state) => state.mainer.taxes)
     const tableList = initTableList(data, selectedTLD)
 
@@ -33,6 +34,7 @@ const ComparedTable = () => {
                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Registrátor</th>
                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cena registrace</th>
                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cena prodloužení</th>
+                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cena za období</th>
                             <th scope="col" className="relative px-6 py-3"><span className="sr-only">Edit</span></th>
                         </tr>
                     </thead>
@@ -64,6 +66,13 @@ const ComparedTable = () => {
                                 </div>
                                 <div className={`priceTaxes ${!taxes ? "preferred" : "notPreferred"}`}>{(data[row.regIndex].domains[row.domainIndex].priceRen).toFixed(2)} Kč</div>
                             </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="flex items-center">
+                                    <div className={`priceTaxes ${taxes ? "preferred" : "notPreferred"}`}>{(((data[row.regIndex].domains[row.domainIndex].priceReg)+((data[row.regIndex].domains[row.domainIndex].priceRen)*(period-1)))*1.21).toFixed(2)} Kč</div>
+                                    <span className="ml-1 text-[8px] text-gray-400">(vč. DPH)</span>
+                                </div>
+                                <div className={`priceTaxes ${!taxes ? "preferred" : "notPreferred"}`}>{((data[row.regIndex].domains[row.domainIndex].priceReg)+((data[row.regIndex].domains[row.domainIndex].priceRen)*(period-1))).toFixed(2)} Kč</div>
+                            </td>
                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <div title="Přejít k registrátorovi" className="flex justify-center items-center">
                                     <Link href={registrarsList[data[row.regIndex].name]?.link || "/"}>
@@ -82,9 +91,6 @@ const ComparedTable = () => {
                 <p className="text-sm text-gray-400">
                     Výše uvedená tabulka řadí registrátory na základě součtu ceny 1 roku za registraci a 1 roku za prodloužení.
                     Někteří registrátoři totiž mohou mít rozumné ceny při registraci, ale při následném prodloužení již mohou být i několikanásobně vyšší.
-                </p>
-                <p className="text-sm text-gray-400">
-                    Brzy bude možné také si délku období pro výpočet přizpůsobit.
                 </p>
             </div>
         </div>
