@@ -5,6 +5,11 @@ const registrarsList = {
     Pipni: {link: "https://pipni.cz/", img: "/registrars/resized/pipni.png"},
     Endora: {link: "https://www.endora.cz/", img: "/registrars/resized/endora.png"},
     Websupport: {link: "https://www.websupport.cz/", img: "/registrars/websupport.svg"},
+    Doména: {link: "https://www.domena.cz/", img: "/registrars/domena.svg"},
+    ONEbit: {link: "https://www.onebit.cz/cz/", img: "/registrars/onebit.svg"},
+    "Český hosting": {link: "https://www.cesky-hosting.cz/", img: "/registrars/ceskyhosting.svg"},
+    Webglobe: {link: "https://www.webglobe.cz/", img: "/registrars/webglobe.svg"},
+    Active24: {link: "https://www.active24.cz/", img: "/registrars/active24.svg"},
 }
 
 module.exports = {
