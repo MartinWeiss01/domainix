@@ -5,9 +5,8 @@ import { setFilterFormParams } from "../../app/mainSlice";
 const collectTLDs = (data) => {
 	let total = [];
 	data.forEach(el => {
-		let tlds = el.domains.map(el => el.domain)
-		tlds.forEach(tld => {
-			if(!total.includes(tld)) total.push(tld)
+		el.domains.forEach(tld => {
+			if(!total.includes(tld.domain)) total.push(tld.domain)
 		});
 	});
 	return total
