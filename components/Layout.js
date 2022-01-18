@@ -10,7 +10,7 @@ import Footer from "./Footer";
 
 const navigation = [
 	{group: "Hlavní", links: [
-		{name: "Kalkulačka", href: "/", icon: CalculatorIcon, exact: true},
+		{name: "Dashboard", href: "/", icon: HomeIcon, exact: true},
 		{name: "Registrátoři", href: "/registrars", icon: UserGroupIcon, exact: false},
 	]},
 	{group: "Podpora", links: [
