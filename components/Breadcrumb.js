@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 const sections = {
     "": "Dashboard",
+    "faq": "Často kladené dotazy",
     "registrars": "Seznam registrátorů",
     "[id]": "Profil registrátora",
 }
@@ -34,7 +35,7 @@ const Breadcrumb = () => {
                                         </div>
                                     </li>
                                 ) : (
-                                    <li>
+                                    <li key={sectionKey}>
                                         <div>
                                             <a className="text-sm font-medium text-gray-500 hover:text-gray-700">
                                                 <HomeIcon className="flex-shrink-0 h-5 w-5" aria-hidden="true" />
@@ -49,7 +50,7 @@ const Breadcrumb = () => {
     
             <div className="mt-2 md:flex md:items-center md:justify-between">
               <div className="flex-1 min-w-0">
-                <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+                <h2 className="text-2xl mt-2 font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
                     {sections[pathSplit[pathSplit.length-1]]}
                 </h2>
               </div>
@@ -80,7 +81,7 @@ const Breadcrumb = () => {
 
                 <div className="mt-2 md:flex md:items-center md:justify-between">
                     <div className="flex-1 min-w-0">
-                        <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">Dashboard</h2>
+                        <h2 className="text-2xl mt-2 font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">Dashboard</h2>
                     </div>
                 </div>
             </div>
