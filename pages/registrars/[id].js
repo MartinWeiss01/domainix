@@ -8,6 +8,7 @@ const RegistrarDetail = () => {
     const router = useRouter()
     const { id } = router.query
     const data = useSelector((state) => state.mainer.data)
+    const taxes = useSelector((state) => state.mainer.taxes)
 
     if(data[id] !== undefined) {
         return (
@@ -18,13 +19,13 @@ const RegistrarDetail = () => {
                             <img className="max-h-full" src={registrarsList[data[id].name]?.img || "https://via.placeholder.com/256x128"} />
                         </div>
 
-                        <div class="px-4 pb-3 pt-4 bg-gray-100 flex justify-between flex-wrap">
-                        <div class="text-xs uppercase font-bold text-gray-600 tracking-wide">
+                        <div className="px-4 pb-3 pt-4 bg-gray-100 flex justify-between flex-wrap">
+                        <div className="text-xs uppercase font-bold text-gray-600 tracking-wide">
                             {data[id].name}
                         </div>
                         <Link href={registrarsList[data[id].name]?.link || "/"}>
                             <a target="_blank">
-						        <div class="flex text-xs uppercase font-bold text-gray-600 tracking-wide items-center">Web <ExternalLinkIcon className="h-4 w-4" /></div>
+						        <div className="flex text-xs uppercase font-bold text-gray-600 tracking-wide items-center">Web <ExternalLinkIcon className="h-4 w-4" /></div>
                             </a>
                         </Link>
                     </div>
@@ -45,8 +46,8 @@ const RegistrarDetail = () => {
                             <thead className="bg-gray-50 rounded-md">
                                 <tr>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Doména</th>
-                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cena registrace (vč. DPH/bez DPH)</th>
-                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cena prodloužení (vč. DPH/bez DPH)</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Registrace</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Prodloužení</th>
                                 </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200">
@@ -58,12 +59,18 @@ const RegistrarDetail = () => {
                                         </div>
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="text-sm text-gray-900">{(row.priceReg*1.21).toFixed(2)} Kč</div>
-                                        <div className="text-sm text-gray-500">{(row.priceReg).toFixed(2)} Kč</div>
+                                        <div className="flex items-center">
+                                            <div className={`priceTaxes ${taxes ? "preferred" : "notPreferred"}`}>{(row.priceReg*1.21).toFixed(2)} Kč</div>
+                                            <span className="ml-1 text-[8px] text-gray-400">(vč. DPH)</span>
+                                        </div>
+                                        <div className={`priceTaxes ${!taxes ? "preferred" : "notPreferred"}`}>{(row.priceReg).toFixed(2)} Kč</div>
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="text-sm text-gray-900">{(row.priceRen*1.21).toFixed(2)} Kč</div>
-                                        <div className="text-sm text-gray-500">{(row.priceRen).toFixed(2)} Kč</div>
+                                        <div className="flex items-center">
+                                            <div className={`priceTaxes ${taxes ? "preferred" : "notPreferred"}`}>{(row.priceRen*1.21).toFixed(2)} Kč</div>
+                                            <span className="ml-1 text-[8px] text-gray-400">(vč. DPH)</span>
+                                        </div>
+                                        <div className={`priceTaxes ${!taxes ? "preferred" : "notPreferred"}`}>{(row.priceRen).toFixed(2)} Kč</div>
                                     </td>
                                     </tr>
                                 ))}

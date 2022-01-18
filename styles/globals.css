@@ -21,4 +21,17 @@
     .dashboardSidebarLink.active > svg {
         @apply text-primary-400 transition-all
     }
+
+    .priceTaxes {
+        @apply text-sm
+    }
+
+    .priceTaxes.preferred {
+        @apply text-gray-900 font-medium
+    }
+
+    .priceTaxes.notPreferred {
+        @apply text-gray-500 text-xs
+    }
+
 }

@@ -21,6 +21,7 @@ const initTableList = (data, tld) => {
 const ComparedTable = () => {
     const data = useSelector((state) => state.mainer.data)
     const selectedTLD = useSelector((state) => state.mainer.selectedTLD)
+    const taxes = useSelector((state) => state.mainer.taxes)
     const tableList = initTableList(data, selectedTLD)
 
     return (
@@ -30,8 +31,8 @@ const ComparedTable = () => {
                     <thead className="bg-gray-50 rounded-md">
                         <tr>
                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Registrátor</th>
-                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cena registrace (vč. DPH/bez DPH)</th>
-                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cena prodloužení (vč. DPH/bez DPH)</th>
+                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cena registrace</th>
+                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cena prodloužení</th>
                             <th scope="col" className="relative px-6 py-3"><span className="sr-only">Edit</span></th>
                         </tr>
                     </thead>
@@ -50,12 +51,18 @@ const ComparedTable = () => {
                                 </div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{(data[row.regIndex].domains[row.domainIndex].priceReg*1.21).toFixed(2)} Kč</div>
-                                <div className="text-sm text-gray-500">{(data[row.regIndex].domains[row.domainIndex].priceReg).toFixed(2)} Kč</div>
+                                <div className="flex items-center">
+                                    <div className={`priceTaxes ${taxes ? "preferred" : "notPreferred"}`}>{(data[row.regIndex].domains[row.domainIndex].priceReg*1.21).toFixed(2)} Kč</div>
+                                    <span className="ml-1 text-[8px] text-gray-400">(vč. DPH)</span>
+                                </div>
+                                <div className={`priceTaxes ${!taxes ? "preferred" : "notPreferred"}`}>{(data[row.regIndex].domains[row.domainIndex].priceReg).toFixed(2)} Kč</div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="text-sm text-gray-900">{(data[row.regIndex].domains[row.domainIndex].priceRen*1.21).toFixed(2)} Kč</div>
-                                <div className="text-sm text-gray-500">{(data[row.regIndex].domains[row.domainIndex].priceRen).toFixed(2)} Kč</div>
+                                <div className="flex items-center">
+                                    <div className={`priceTaxes ${taxes ? "preferred" : "notPreferred"}`}>{(data[row.regIndex].domains[row.domainIndex].priceRen*1.21).toFixed(2)} Kč</div>
+                                    <span className="ml-1 text-[8px] text-gray-400">(vč. DPH)</span>
+                                </div>
+                                <div className={`priceTaxes ${!taxes ? "preferred" : "notPreferred"}`}>{(data[row.regIndex].domains[row.domainIndex].priceRen).toFixed(2)} Kč</div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <div title="Přejít k registrátorovi" className="flex justify-center items-center">
