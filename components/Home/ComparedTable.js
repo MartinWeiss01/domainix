@@ -24,8 +24,8 @@ const ComparedTable = () => {
     const tableList = initTableList(data, selectedTLD)
 
     return (
-        <div className="py-4">
-            <div className="overflow-x-auto">
+        <div className="my-4">
+            <div className="overflow-x-auto overflow-y-hidden">
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50 rounded-md">
                         <tr>
@@ -41,7 +41,7 @@ const ComparedTable = () => {
                             <td className="px-6 py-4 whitespace-nowrap">
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0 h-10 w-10 flex items-center">
-                                        <img className="w-10" src={registrarsList[data[row.regIndex].name].img} alt="" />
+                                        <img className="w-10" src={registrarsList[data[row.regIndex].name]?.img || "https://via.placeholder.com/50"} alt="" />
                                     </div>
                                     <div className="ml-4">
                                         <div className="text-sm font-medium text-gray-900">{data[row.regIndex].name}</div>
@@ -59,7 +59,7 @@ const ComparedTable = () => {
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <div title="Přejít k registrátorovi" className="flex justify-center items-center">
-                                    <Link href={registrarsList[data[row.regIndex].name].link}>
+                                    <Link href={registrarsList[data[row.regIndex].name]?.link || "/"}>
                                         <a target="_blank" className="text-primary-600 hover:text-primary-800">
                                             <ShoppingCartIcon className="h-5 w-5"/>
                                         </a>
