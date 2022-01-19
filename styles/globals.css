@@ -4,10 +4,10 @@
 
 @layer components {
     .dashboard-group-title {
-        @apply mx-4 mt-2 mb-3 uppercase text-xs text-white opacity-30 font-medium tracking-widest
+        @apply mx-4 mt-2 mb-3 uppercase text-xs text-white opacity-30 font-thin tracking-widest
     }
     .dashboardSidebarLink {
-        @apply flex items-center px-4 py-2 transition-all sm:rounded-md text-base
+        @apply flex items-center px-4 py-2 transition-all sm:rounded-md text-base font-medium
     }
     .dashboardSidebarLink:not(.active) {
         @apply text-gray-300 hover:bg-gray-700 hover:text-white transition-all
