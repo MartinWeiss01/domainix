@@ -20,11 +20,6 @@ const navigation = [
 	]},
 ];
 
-const options = [
-	{name: "Preferovat ceny vč. daně"},
-	{name: "Měna"},
-];
-
 const Layout = ({ content }) => {
     const router = useRouter()
 	const taxes = useSelector((state) => state.mainer.taxes)
@@ -75,13 +70,13 @@ const Layout = ({ content }) => {
 							</div>
 
 							<div className="mt-5 flex-1 h-0 overflow-y-auto">
-								<nav className="sm:px-4 space-y-1 flex flex-col gap-4">
+								<nav className="space-y-1 flex flex-col gap-4 sm:px-4">
                                     {navigation.map((group, groupKey) => (
 										<div key={groupKey} className="mt-2">
 											<p className="dashboard-group-title">{group.group}</p>
 											{group.links.map((link, linkKey) => (
 												<Link href={link.href} key={linkKey}>
-													<a href={link.href} className={`px-4 group dashboardSidebarLink sm:rounded-md text-base ${link.exact ? (router.pathname === link.href ? "active" : "") : (router.pathname.includes(link.href) ? "active" : "")}`}>
+													<a href={link.href} className={`group dashboardSidebarLink ${link.exact ? (router.pathname === link.href ? "active" : "") : (router.pathname.includes(link.href) ? "active" : "")}`}>
 														<link.icon className="mr-4 h-6 w-6" aria-hidden="true"/>
 														{link.name}
 													</a>
@@ -121,13 +116,13 @@ const Layout = ({ content }) => {
                         </div>
 
 						<div className="flex-1 flex flex-col overflow-y-auto">
-							<nav className="flex-1 py-4 bg-gray-800 space-y-1 flex flex-col gap-4">
+							<nav className="flex-1 py-4 bg-gray-800 space-y-1 flex flex-col gap-4 px-4">
 								{navigation.map((group, groupKey) => (
-									<div key={groupKey} className="mt-4">
+									<div key={groupKey} className="mt-4 flex flex-col gap-0">
 										<p className="dashboard-group-title">{group.group}</p>
 										{group.links.map((link, linkKey) => (
 											<Link href={link.href} key={linkKey}>
-                                        		<a href={link.href} className={`px-4 group dashboardSidebarLink text-sm ${link.exact ? (router.pathname === link.href ? "active" : "") : (router.pathname.includes(link.href) ? "active" : "")}`}>
+                                        		<a href={link.href} className={`group dashboardSidebarLink ${link.exact ? (router.pathname === link.href ? "active" : "") : (router.pathname.includes(link.href) ? "active" : "")}`}>
 										    		<link.icon className="mr-3 h-6 w-6" aria-hidden="true"/>
 													{link.name}
 												</a>
