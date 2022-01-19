@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { registrarsList } from "../../libs/registrarsList";
 import { ExternalLinkIcon } from "@heroicons/react/outline"
+import ErrorPage from "next/error";
 
 const getRegistrarIDBySlug = (data, slug) => {
     for(let i = 0; i < data.length; i++) {
@@ -24,7 +25,7 @@ const RegistrarDetail = () => {
             <>
                 <div>
                     <div className="bg-white shadow-xl rounded-lg overflow-hidden mb-8 max-w-md">
-                        <div className="bg-cover bg-center h-32 p-4 flex justify-center items-center" >
+                        <div className="bg-cover bg-center h-32 p-4 flex justify-center items-center">
                             <img className="max-h-full" src={registrarsList[data[regIndex].name]?.img || "https://via.placeholder.com/256x128"} />
                         </div>
 
@@ -91,9 +92,7 @@ const RegistrarDetail = () => {
         )
     } else {
         return (
-            <>
-                Registrátor nenalezen!
-            </>
+            <ErrorPage statusCode="404"/>
         )
     }
 
