@@ -28,12 +28,12 @@ const Breadcrumb = () => {
                             {pathSplit.map((section, sectionKey) => 
                                 sectionKey !== 0 ? (
                                     <li key={sectionKey}>
-                                            <Link href={sections[section].href}>
+                                            <Link href={sections[section]?.href || "#"}>
                                                 <a>
                                                     <div className="flex items-center">
                                                         <ChevronRightIcon className="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" />
                                                         <span className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">
-                                                            {sections[section].title}
+                                                            {sections[section]?.title || ""}
                                                             </span>
                                                     </div>
                                                 </a>
@@ -58,7 +58,7 @@ const Breadcrumb = () => {
             <div className="mt-2 md:flex md:items-center md:justify-between">
               <div className="flex-1 min-w-0">
                 <h2 className="text-2xl mt-2 font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-                    {sections[pathSplit[pathSplit.length-1]].title}
+                    {sections[pathSplit[pathSplit.length-1]]?.title || "Obsah"}
                 </h2>
               </div>
             </div>
