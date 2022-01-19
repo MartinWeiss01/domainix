@@ -18,7 +18,7 @@ const Breadcrumb = () => {
             <div>
                 <div>
                     <nav className="sm:hidden" aria-label="Back">
-                        <a className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700">
+                        <a className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700" onClick={() => router.back()}>
                             <ChevronLeftIcon className="flex-shrink-0 -ml-1 mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
                             Zpět
                         </a>
