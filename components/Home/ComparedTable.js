@@ -27,7 +27,7 @@ const ComparedTable = () => {
 
     return (
         <div className="my-4">
-            <div className="overflow-x-auto overflow-y-hidden">
+            <div className="overflow-x-auto ">
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50 rounded-md">
                         <tr>
