@@ -3,7 +3,7 @@ import { ShoppingCartIcon } from "@heroicons/react/solid";
 import { registrarsList } from "../../libs/registrarsList";
 import Link from "next/link";
 
-const initTableList = (data, tld) => {
+const initTableList = (data, tld, period) => {
     let tempTableList = [];
     data.forEach((reg, regKey) => {
         for(let i = 0; i < reg.domains.length; i++) {
@@ -14,7 +14,7 @@ const initTableList = (data, tld) => {
         }
     });
 
-    tempTableList.sort((a, b) => {return ((data[a.regIndex].domains[a.domainIndex].priceReg)+(data[a.regIndex].domains[a.domainIndex].priceRen)) - ((data[b.regIndex].domains[b.domainIndex].priceReg)+(data[b.regIndex].domains[b.domainIndex].priceRen))})
+    tempTableList.sort((a, b) => {return (((data[a.regIndex].domains[a.domainIndex].priceReg)+((data[a.regIndex].domains[a.domainIndex].priceRen)*(period-1)))) - (((data[b.regIndex].domains[b.domainIndex].priceReg)+((data[b.regIndex].domains[b.domainIndex].priceRen)*(period-1))))})
     return tempTableList;
 }
 
@@ -23,7 +23,7 @@ const ComparedTable = () => {
     const selectedTLD = useSelector((state) => state.mainer.selectedTLD)
     const period = useSelector((state) => state.mainer.selectedPeriod)
     const taxes = useSelector((state) => state.mainer.taxes)
-    const tableList = initTableList(data, selectedTLD)
+    const tableList = initTableList(data, selectedTLD, period)
 
     return (
         <div className="my-4">
@@ -89,8 +89,7 @@ const ComparedTable = () => {
             </div>
             <div className="mt-2 flex flex-col gap-1">
                 <p className="text-sm text-gray-400">
-                    Výše uvedená tabulka řadí registrátory na základě součtu ceny 1 roku za registraci a 1 roku za prodloužení.
-                    Někteří registrátoři totiž mohou mít rozumné ceny při registraci, ale při následném prodloužení již mohou být i několikanásobně vyšší.
+                    Výše uvedená tabulka řadí registrátory dle celkové ceny za zvolené období.
                 </p>
             </div>
         </div>
