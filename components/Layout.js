@@ -55,10 +55,10 @@ const Layout = ({ content }) => {
 								</div>
 							</Transition.Child>
 
-							<div className="flex-shrink-0 flex items-center px-4">
+							<div className="flex-shrink-0 flex items-center justify-center px-4">
 								<Link href="/">
 									<a>
-										<svg className="h-8 w-auto fill-current text-primary-500" viewBox="0 0 417.823 79.672">
+										<svg className="h-6 w-auto fill-current text-primary-500" viewBox="0 0 417.823 79.672">
 											<g transform="translate(0 79.672)">
 												<path d="M22.534-4.267a3.143,3.143,0,0,1-.915,1.918A5.751,5.751,0,0,0,20.4-.562q-.436,1-1.22.218a2.409,2.409,0,0,0-1.395-.828,5.841,5.841,0,0,1-2.092-.959A5.052,5.052,0,0,0,13.6-3.047a3.608,3.608,0,0,0-1.22.218q-.61.218-2.267-.915A3.76,3.76,0,0,1,8.456-7.057q0-2.179,2.092-12.466l1.22-5.579-.61-2.441A67.369,67.369,0,0,0,6.32-40.924q-3.7-8.064-5.012-11.725A25.383,25.383,0,0,1,0-61.192q0-9.5,14.819-16.127a21.73,21.73,0,0,1,9.24-2.354,48.949,48.949,0,0,1,7.148.436q9.066,1.482,17.522,9.5,2.092,1.918,1.656,1.22-1.482-1.918-1.569-2.092v-.174q.7,0,3.661,3.923a38.276,38.276,0,0,1,7.758,22.839q0,15.778-11.42,28.506-6.451,7.235-10.33,9.5a14.862,14.862,0,0,1-7.5,2.267A17.155,17.155,0,0,1,23.45-5.662,1.472,1.472,0,0,0,22.534-4.267ZM25.8-14.031q-1.482.174-1.743.7-.174.436.436.087T25.8-14.031Zm3.923-53.35q-20.573,0-20.486,8.456,0,3.836,2.789,9.327t3.138,5.579q1.308-1.395,1.743-6.887t.7-5.666a1.225,1.225,0,0,0,.349-.872A3.593,3.593,0,0,1,19-59.187a48.169,48.169,0,0,1,4.62,1.569q.436.174.872-.785a9.707,9.707,0,0,0,.567-3.356q.043-2.049.654-1.046t.915,1.09a3.657,3.657,0,0,1,1.046.741q.741.654,1.133.305t.567.61a9.07,9.07,0,0,0,1.22,3.4q.61.7.61,4.01t-3.4,19.44q-3.4,16.127-3.4,17.391t.174,1.264a15.291,15.291,0,0,0,9.938-4.882Q46.2-31.378,46.2-44.585T36.613-64.766q-3.487-2.528-4.838-2.572T29.726-67.381ZM17.478-76.534a5.573,5.573,0,0,0,1.482-.523,4.2,4.2,0,0,1,1.09-.436q.436-.087.436-.392t-.436-.305a26.538,26.538,0,0,0-3.792,1.133A20.086,20.086,0,0,0,12.9-75.793q0,.131.61.131a7.894,7.894,0,0,0,1.874-.349Q16.65-76.36,17.478-76.534Zm4.751-1.743a1.985,1.985,0,0,0-.741-.087q-.567,0-.654.174.174.174.741.087A1.653,1.653,0,0,0,22.229-78.278Z"/>
 												<path d="M105.48-21.528Q94.322-9.933,84.733-9.934a12.993,12.993,0,0,1-5.143-.872,60.167,60.167,0,0,0-5.8-2.049,27.6,27.6,0,0,1-6.669-3.008q-8.369-6.015-8.369-14.994t6.451-22.1q6.451-13.12,14.209-17.217a33.481,33.481,0,0,0,4.707-3.051,9.27,9.27,0,0,1,5.754-1.918,8.242,8.242,0,0,1,5.23,1.569Q97.111-72,97.242-72.306t.479.392a1.753,1.753,0,0,0,.915.915,1.239,1.239,0,0,1,.741.959q.174.741,2.266,1.7a16.162,16.162,0,0,1,3.967,2.615,10.7,10.7,0,0,0,2.092,1.656c.145,0,.218-.044.218-.131a1.662,1.662,0,0,0-.392-.61q-.393-.48-.131-.479.871.174,4.751,6.582a24.835,24.835,0,0,1,3.879,12.989,30.292,30.292,0,0,1-3.182,13.207A41.91,41.91,0,0,1,105.48-21.528ZM97.373-56.92l-4.184.349q-4.533,0-5.754-1.438t-2-.654q-.785.785-2.4,2.441T77.105-45.98q-4.315,8.587-4.315,14.6a8.694,8.694,0,0,0,.654,3.661,7.089,7.089,0,0,0,.828,1.525q.174.131-.218.436t1,1.351q4.707,3.313,8.63,3.313,12.466,0,18.916-10.809a12.239,12.239,0,0,0,2.005-4.969q.087-1.744.087-6.625a14.665,14.665,0,0,0-3.312-9.153Q98.07-56.92,97.373-56.92ZM88.917-73.832a5.781,5.781,0,0,0-3.269,1.177q-1.7,1.177-.436,1.177a4.429,4.429,0,0,0,2.528-.872,11.8,11.8,0,0,1,2.005-1.177Q90.486-73.832,88.917-73.832Z"/>
@@ -75,13 +75,13 @@ const Layout = ({ content }) => {
 							</div>
 
 							<div className="mt-5 flex-1 h-0 overflow-y-auto">
-								<nav className="px-2 space-y-1">
+								<nav className="sm:px-4 space-y-1 flex flex-col gap-4">
                                     {navigation.map((group, groupKey) => (
-										<div key={groupKey}>
+										<div key={groupKey} className="mt-2">
 											<p className="dashboard-group-title">{group.group}</p>
 											{group.links.map((link, linkKey) => (
 												<Link href={link.href} key={linkKey}>
-													<a href={link.href} className={`group dashboardSidebarLink text-base ${link.exact ? (router.pathname === link.href ? "active" : "") : (router.pathname.includes(link.href) ? "active" : "")}`}>
+													<a href={link.href} className={`px-4 group dashboardSidebarLink sm:rounded-md text-base ${link.exact ? (router.pathname === link.href ? "active" : "") : (router.pathname.includes(link.href) ? "active" : "")}`}>
 														<link.icon className="mr-4 h-6 w-6" aria-hidden="true"/>
 														{link.name}
 													</a>
@@ -152,11 +152,11 @@ const Layout = ({ content }) => {
 						</div>
 
 						<div className="ml-4 flex gap-2 items-center md:ml-6">
-							<div className="flex gap-1 items-center">
+							<div className="flex gap-1 items-center text-gray-600">
 								<CashIcon className="w-5 h-5"/>
 								<span className="text-xs font-medium">DPH</span>
 							</div>
-							<Switch checked={localTaxes} onChange={updateTaxes} className={`${localTaxes ? 'bg-primary-700' : 'bg-red-900'} relative inline-flex flex-shrink-0 h-4 w-8 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}>
+							<Switch checked={localTaxes} onChange={updateTaxes} className={`${localTaxes ? 'bg-primary-700' : 'bg-gray-300'} relative inline-flex flex-shrink-0 h-4 w-8 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}>
 								<span aria-hidden="true" className={`${localTaxes ? 'translate-x-4' : 'translate-x-0'} pointer-events-none inline-block h-3 w-3 rounded-full bg-white transform ring-0 transition ease-in-out duration-200`}/>
 							</Switch>
 						</div>
