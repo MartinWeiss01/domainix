@@ -14,7 +14,7 @@ const RegistrarsPage = () => {
                         <div key={registratorKey} className="flex justify-center items-center">
                             <Link href={`/registrars/${registrator.slug}`}>
                                 <a className="flex justify-center items-center w-40 h-20 opacity-50 hover:opacity-100 transition-opacity">
-                                    <img className="max-h-full" src={registrarsList[registrator.name].img} />
+                                    <img className="max-h-full" alt={registrator.name} src={registrarsList[registrator.name].img} />
                                 </a>
                             </Link>
                         </div>
