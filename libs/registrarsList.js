@@ -10,6 +10,11 @@ const registrarsList = {
     "Český hosting": {link: "https://www.cesky-hosting.cz/", img: "/registrars/ceskyhosting.svg"},
     Webglobe: {link: "https://www.webglobe.cz/", img: "/registrars/webglobe.svg"},
     Active24: {link: "https://www.active24.cz/", img: "/registrars/active24.svg"},
+    Gigaserver: {link: "https://www.active24.cz/", img: "/registrars/gigaserver.svg"},
+    Web4U: {link: "https://www.active24.cz/", img: "/registrars/web4u.svg"},
+    Tele3: {link: "https://www.active24.cz/", img: "/registrars/resized/tele3.png"},
+    regZone: {link: "https://www.active24.cz/", img: "/registrars/resized/regzone.png"},
+    ASPone: {link: "https://www.active24.cz/", img: "/registrars/resized/aspone.png"},
 }
 
 module.exports = {
