@@ -8,8 +8,8 @@ import { useEffect, useState } from "react";
 import Loading from "../../components/Loading";
 
 const getRegistrarIDBySlug = (data, slug) => {
-    for(let i = 0; i < data.length; i++) {
-        if(data[i].slug === slug) {
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].slug === slug) {
             return i
         }
     }
@@ -27,8 +27,8 @@ const RegistrarDetail = () => {
         setLoaded(true)
     }, [])
 
-    if(loaded) {
-        if(data[regIndex] !== undefined) {
+    if (loaded) {
+        if (data[regIndex] !== undefined) {
             return (
                 <>
                     <div>
@@ -38,15 +38,15 @@ const RegistrarDetail = () => {
                             </div>
 
                             <div className="px-4 pb-3 pt-4 bg-gray-100 flex justify-between flex-wrap">
-                            <div className="text-xs uppercase font-bold text-gray-600 tracking-wide">
-                                {data[regIndex].name}
+                                <div className="text-xs uppercase font-bold text-gray-600 tracking-wide">
+                                    {data[regIndex].name}
+                                </div>
+                                <Link href={registrarsList[data[regIndex].name]?.link || "/"}>
+                                    <a target="_blank">
+                                        <div className="flex text-xs uppercase font-bold text-gray-600 tracking-wide items-center">Web <ExternalLinkIcon className="h-4 w-4" /></div>
+                                    </a>
+                                </Link>
                             </div>
-                            <Link href={registrarsList[data[regIndex].name]?.link || "/"}>
-                                <a target="_blank">
-                                    <div className="flex text-xs uppercase font-bold text-gray-600 tracking-wide items-center">Web <ExternalLinkIcon className="h-4 w-4" /></div>
-                                </a>
-                            </Link>
-                        </div>
 
                             <div className="flex justify-between items-center p-4 border-t border-gray-300 text-gray-600 flex-wrap">
                                 <div className="flex items-center">
@@ -71,25 +71,25 @@ const RegistrarDetail = () => {
                                 <tbody className="bg-white divide-y divide-gray-200">
                                     {data[regIndex].domains.map((row, rowKey) => (
                                         <tr key={rowKey}>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="flex items-center">
-                                                <span className="text-sm font-medium text-gray-900">{row.domain}</span>
-                                            </div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="flex items-center">
-                                                <div className={`priceTaxes ${taxes ? "preferred" : "notPreferred"}`}>{(row.priceReg*1.21).toFixed(2)} Kč</div>
-                                                <span className="ml-1 text-[8px] text-gray-400">(vč. DPH)</span>
-                                            </div>
-                                            <div className={`priceTaxes ${!taxes ? "preferred" : "notPreferred"}`}>{(row.priceReg).toFixed(2)} Kč</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="flex items-center">
-                                                <div className={`priceTaxes ${taxes ? "preferred" : "notPreferred"}`}>{(row.priceRen*1.21).toFixed(2)} Kč</div>
-                                                <span className="ml-1 text-[8px] text-gray-400">(vč. DPH)</span>
-                                            </div>
-                                            <div className={`priceTaxes ${!taxes ? "preferred" : "notPreferred"}`}>{(row.priceRen).toFixed(2)} Kč</div>
-                                        </td>
+                                            <td className="px-6 py-4 whitespace-nowrap">
+                                                <div className="flex items-center">
+                                                    <span className="text-sm font-medium text-gray-900">{row.domain}</span>
+                                                </div>
+                                            </td>
+                                            <td className="px-6 py-4 whitespace-nowrap">
+                                                <div className="flex items-center">
+                                                    <div className={`priceTaxes ${taxes ? "preferred" : "notPreferred"}`}>{(row.priceReg * 1.21).toFixed(2)} Kč</div>
+                                                    <span className="ml-1 text-[8px] text-gray-400">(vč. DPH)</span>
+                                                </div>
+                                                <div className={`priceTaxes ${!taxes ? "preferred" : "notPreferred"}`}>{(row.priceReg).toFixed(2)} Kč</div>
+                                            </td>
+                                            <td className="px-6 py-4 whitespace-nowrap">
+                                                <div className="flex items-center">
+                                                    <div className={`priceTaxes ${taxes ? "preferred" : "notPreferred"}`}>{(row.priceRen * 1.21).toFixed(2)} Kč</div>
+                                                    <span className="ml-1 text-[8px] text-gray-400">(vč. DPH)</span>
+                                                </div>
+                                                <div className={`priceTaxes ${!taxes ? "preferred" : "notPreferred"}`}>{(row.priceRen).toFixed(2)} Kč</div>
+                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -100,7 +100,7 @@ const RegistrarDetail = () => {
             )
         } else {
             return (
-                <ErrorPage statusCode="404"/>
+                <ErrorPage statusCode="404" />
             )
         }
     } else {
