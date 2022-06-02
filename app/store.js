@@ -5,4 +5,5 @@ export const store = configureStore({
     reducer: {
         mainer: mainerReducer,
     },
+    devTools: false,
 })
