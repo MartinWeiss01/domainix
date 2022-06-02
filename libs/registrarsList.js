@@ -15,6 +15,7 @@ const registrarsList = {
     Tele3: {link: "https://www.tele3.cz/", img: "/registrars/resized/tele3.png"},
     regZone: {link: "https://www.regzone.cz/", img: "/registrars/resized/regzone.png"},
     ASPone: {link: "https://www.aspone.cz/cz/", img: "/registrars/resized/aspone.png"},
+    Namecheap: {link: "https://www.namecheap.com/", img: "/registrars/namecheap.svg"},
 }
 
 module.exports = {
